@@ -6,7 +6,7 @@ import 'package:flutter/material.dart';
 class SignIn extends StatefulWidget {
 
   final Function toggleView;
-  const SignIn({required this.toggleView});
+  const SignIn({super.key, required this.toggleView});
 
   @override
   State<SignIn> createState() => _SignInState();

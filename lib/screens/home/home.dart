@@ -13,7 +13,7 @@ class Home extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return StreamProvider<QuerySnapshot?>.value(
+    return StreamProvider<List?>.value(//in here we are listening to the stream of data from the database
       value: DatabaseService().brews,
       initialData: null,
       child: Scaffold(

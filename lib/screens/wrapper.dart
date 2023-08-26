@@ -12,7 +12,7 @@ class Wrapper extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
 
-    final user = Provider.of<AppUser?>(context);
+    final user = Provider.of<AppUser?>(context);//this is the user from the stream
 
     
     //return either home or authenticate widget

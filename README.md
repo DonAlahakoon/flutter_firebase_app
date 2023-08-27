@@ -1,16 +1,6 @@
-# brew_crew3
+# brew_crew APP
 
-A new Flutter project.
+## Created this app to master firebase backend
 
-## Getting Started
 
-This project is a starting point for a Flutter application.
-
-A few resources to get you started if this is your first Flutter project:
-
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
-
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+<img src="https://github.com/DonAlahakoon/flutter_firebase_app/assets/89693545/a6f55985-cf0d-44d9-a742-e979ea417469" width="300" height="auto"/>

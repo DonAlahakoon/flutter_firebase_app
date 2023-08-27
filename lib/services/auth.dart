@@ -10,7 +10,7 @@ class AuthService{
 
   //create a user object based on UserCredentials
   AppUser? _userFromFirebaseUser(User? user){
-    return user !=null? AppUser(uid: user.uid) : null ;
+    return user !=null? AppUser(uid: user.uid) : null;
   }
 
   //auth change user stream
@@ -43,7 +43,7 @@ class AuthService{
       //create a new document for the user with the uid
       await DatabaseService(uid: user!.uid).updateUserData('0','new crew member', 100);
 
-      return _userFromFirebaseUser(user!);
+      return _userFromFirebaseUser(user);
     }
     catch(e){
       print(e.toString());

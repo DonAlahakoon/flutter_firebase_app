@@ -18,6 +18,7 @@ class MyApp extends StatelessWidget {
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
+    //this is a stream provider that listen to the auth changes and return either home or authenticate widget
     return StreamProvider<AppUser?>.value(
       value: AuthService().user,
       initialData: null,

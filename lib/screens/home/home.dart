@@ -1,6 +1,7 @@
+import 'package:brew_crew3/models/brew.dart';
+import 'package:brew_crew3/screens/home/settings_form.dart';
 import 'package:brew_crew3/services/auth.dart';
 import 'package:brew_crew3/services/database.dart';
-import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
@@ -13,25 +14,54 @@ class Home extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return StreamProvider<List?>.value(//in here we are listening to the stream of data from the database
+
+    void _showSettingsPanel(){
+      showModalBottomSheet(context: context, builder: (context){
+        return Container(
+          padding: const EdgeInsets.symmetric(vertical: 20.0, horizontal:60.0),
+          child: SettingsForm(),
+          color: Colors.brown[100],
+        );
+      });
+    }
+    return StreamProvider<List<Brew>?>.value(//in here we are listening to the stream of data from the database
       value: DatabaseService().brews,
-      initialData: null,
+      initialData: [],
       child: Scaffold(
         appBar: AppBar(
           title: Text("Brew Crew"),
           backgroundColor: Colors.brown[400],
           elevation: 0.0,//remove shadow
-          actions: [
+          actions:<Widget> [
             TextButton.icon(
               icon: Icon(Icons.person),
               onPressed: () async{
-                dynamic result  = await _auth.signOut();
+                await _auth.signOut();
               },
+              style: TextButton.styleFrom(
+                foregroundColor: Colors.white,
+              ),
               label: Text("Logout"),
             ),
+            TextButton.icon(
+              icon: Icon(Icons.settings),
+              label: Text("Settings"),
+              onPressed:() => _showSettingsPanel(),
+              style: TextButton.styleFrom(
+                foregroundColor: Colors.white,
+              ),
+            )
           ],
         ),
-        body: BrewList(),
+        body: Container(
+          child: BrewList(),
+          decoration: const BoxDecoration(
+            image: DecorationImage(
+              image: AssetImage("assets/coffee_bg.png"),
+              fit: BoxFit.cover,
+            )
+          ),
+      ),
       ),
     );
     
